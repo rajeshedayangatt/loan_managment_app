@@ -14,6 +14,10 @@ Generate project key
 $ php artisan key:generate
 ```
 
+Change env file
+```
+$ .env.example to .env
+```
 migrate database
 
 ```sh
@@ -24,4 +28,10 @@ seed database
 
 ```sh
 $ php artisan db:seed
+```
+
+server project
+
+```sh
+$ php artisan serve
 ```

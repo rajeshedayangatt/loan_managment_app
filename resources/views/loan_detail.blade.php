@@ -27,7 +27,9 @@
 
             <hr>
 
-            <x-processed-loan/>
+            @if(!empty($email_details_content))
+                <x-processed-loan/>
+            @endif
         </div>
 
         

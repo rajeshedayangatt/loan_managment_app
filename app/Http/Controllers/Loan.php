@@ -23,7 +23,10 @@ class Loan extends Controller
 
     public function index() {
 
-        return view('loan_detail');
+
+        $email_details_content = $this->loanservice->tableContent();
+
+        return view('loan_detail')->with('email_details_content',$email_details_content);
 
     }
 

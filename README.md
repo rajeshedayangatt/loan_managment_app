@@ -8,6 +8,12 @@ Install the dependencies
 $ composer install
 ```
 
+Generate project key 
+
+```sh
+$ php artisan key:generate
+```
+
 migrate database
 
 ```sh

@@ -6,7 +6,7 @@ namespace App\Services;
 use DB;
 use App\Models\LoanDetail;
 use DateTime;
-
+use Schema;
 
 class LoanService {
 
@@ -24,26 +24,33 @@ class LoanService {
 
     public function tableContent() {
         
-        $emi = DB::table('emi_details')->get();
+        $check_table_exist  = Schema::hasTable('emi_details');
 
         $content = [];
-        
-        foreach($emi as $index => $val) {
 
-            $column_header = $this->tableHeader();
+        if($check_table_exist) {
 
-            $data = [$val->client_id];
-            foreach($column_header as $header) {
 
-                $column_name = date('Y_M',strtotime($header));
-                $data[] = $val->$column_name;
+            $emi_details = DB::table('emi_details')->get();
 
+            foreach($emi_details as $index => $val) {
+
+                $column_header = $this->tableHeader();
+    
+                $data = [$val->client_id];
+                foreach($column_header as $header) {
+    
+                    $column_name = date('Y_M',strtotime($header));
+                    $data[] = $val->$column_name;
+    
+                }
+    
+         
+                $content[] = $data;
             }
-
-     
-            $content[] = $data;
+        
         }
-
+        
         return $content;
     
     }

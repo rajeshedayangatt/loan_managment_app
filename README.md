@@ -30,7 +30,7 @@ seed database
 $ php artisan db:seed
 ```
 
-server project
+start developement server
 
 ```sh
 $ php artisan serve
